@@ -82,13 +82,22 @@ To run the examples, use the following commands:
 1. **Positive Test Case:**
     - Send a valid request with a JSON body representing a new order.
     - Expect a successful response with a status code of 200 and a response body conforming to the Order schema.
-
+2. **Negative Test Case:**
+    - Send a request with an invalid JSON body (e.g., missing required fields).
+        - Expect an error response with a status code indicating the issue (e.g., 400 Bad Request).
 ## User 
 
-TODO
+### /user/createWithArray (POST) - Create list of users with given input array AUTOMATED
+
+1. **Positive Test Case:** 
+    - Send a valid request with a JSON body representing a new user.
+    - Expect a successful response with a status code of 200 and a response body conforming to the User schema.
 
 # Improvements
 - Add test cases for Store and User endpoints
 - Use typescript types for defining schemas
 - Use axios for making requests instead of Playwright
 - Use preconditions for tests so that they can be run in parallel
+- Run tests in Docker container
+- Run tests in specific trigger (new release tag, new commit, cron job
+- Create helper functions for making requests
