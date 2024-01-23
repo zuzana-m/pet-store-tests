@@ -1,0 +1,26 @@
+{
+  "name": "pet-store-tests",
+  "version": "0.0.1",
+  "description": "Pet store test suite",
+  "main": "index.js",
+  "directories": {
+    "test": "tests"
+  },
+  "scripts": {
+    "build": "npx tsc",
+    "create-test-reports-dir": "mkdir -p test-reports && touch test-reports/.gitkeep",
+    "test": "npm run playwright",
+    "playwright": "npm run build && npm run create-test-reports-dir && npx playwright test"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "UNLICENSED",
+  "devDependencies": {
+    "ts-node": "^10.9.1",
+    "typescript": "^5.3.2"
+  },
+  "dependencies": {
+    "@faker-js/faker": "^8.3.1",
+    "@playwright/test": "^1.40.0"
+  }
+}

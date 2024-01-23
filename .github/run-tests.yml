@@ -1,0 +1,25 @@
+name: Pet store tests
+on:
+  workflow_dispatch:
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+      - name: Use Node.js 18.x
+        uses: actions/setup-node@v3
+        with:
+          node-version: 18
+
+      - name: Run npm install
+        run: npm install -y
+
+      - name: Run tests
+        run: npm run playwright
+      - uses: actions/upload-artifact@v3
+        if: failure()
+        with:
+          name: test-report
+          path: test-reports/
+          retention-days: 3
